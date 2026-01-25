@@ -4,7 +4,6 @@ import "./index.css";
 import { Home } from "./pages/Home.tsx";
 import { PageNotFound } from "./pages/404.tsx";
 import { HashRouter, Route, Routes } from "react-router";
-import { Test } from "./pages/Test.tsx";
 import { routes } from "./routes.ts";
 import { Blog_DND_Builds_TrueStrikeRogue } from "./pages/blog/dnd/builds/TrueStrikeRogue.tsx";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
@@ -24,7 +23,6 @@ createRoot(document.getElementById("root")!).render(
       <Sidebar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<Test />} />
           <Route path={routes.blog.dnd.home} element={<Blog_DND_Home />} />
           <Route
             path={routes.blog.dnd.builds.trueStrikeRogue}
