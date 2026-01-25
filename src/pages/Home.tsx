@@ -61,9 +61,43 @@ export function Home() {
         .
       </p>
 
+      {/* Current projects */}
       <hr style={{ color: style.colors.gray.faint }} />
-      <br />
+      <h2>Current projects</h2>
+      <p>
+        In my spare time I like to program and write code. Listed below are
+        several projects I have worked on recently.
+      </p>
 
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "150px auto",
+          rowGap: "8px",
+        }}
+      >
+        <Link to="https://github.com/DaFrankort/lenny-dnd-bot">
+          Lenny D&D bot
+        </Link>
+        <span>Discord bot to help play D&D, written in Python.</span>
+
+        <Link to="https://github.com/pipieter/neat-headers">neat headers</Link>
+        <span>Collection of single header C++20 libraries.</span>
+
+        <Link to="https://github.com/pipieter/d20distribution">
+          d20distribution
+        </Link>
+        <span>Python library to calculate the distribution of dice rolls.</span>
+
+        <Link to="https://github.com/pipieter/d20js">d20js</Link>
+        <span>
+          JavaScript library to simulate and calculate the distribution of dice
+          rolls.
+        </span>
+      </div>
+      {/* Buttons */}
+      <hr style={{ color: style.colors.gray.faint }} />
+      <h2>Contact</h2>
       <div
         style={{
           display: "grid",
