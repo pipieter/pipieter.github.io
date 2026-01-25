@@ -137,7 +137,7 @@ export default function Sidebar(props: {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            TODO title
+            pim.pieters
           </Typography>
         </Toolbar>
       </AppBar>
