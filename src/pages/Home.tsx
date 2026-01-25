@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { routes } from "../routes";
 
 export function Home() {
   return (
@@ -8,6 +9,7 @@ export function Home() {
       <Link to={"/test"}>
         <p>Go to the test page.</p>
       </Link>
+      <Link to={routes.blog.dnd.builds.trueStrikeRogue}>True Strike Rogue</Link>
     </div>
   );
 }

@@ -8,12 +8,23 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "prettier": "prettier src/ --write",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d dist"
   },
   "dependencies": {
+    "@base-ui/react": "^1.1.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "^7.3.7",
+    "chart.js": "^4.5.1",
+    "d20attack.js": "github:pipieter/d20attack.js",
+    "d20js": "github:pipieter/d20js",
+    "lucide-react": "^0.563.0",
     "react": "^19.2.0",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.2.0",
     "react-router": "^7.12.0"
   },
@@ -28,6 +39,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
+    "prettier": "^3.8.1",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"
