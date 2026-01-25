@@ -12,6 +12,7 @@ import {
   PointElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { useStyles } from "../hooks/styles";
 
 ChartJS.register(
   CategoryScale,
@@ -34,6 +35,7 @@ export function LineChart(props: {
   ytitle?: string;
 }) {
   const { entries, title, xtitle, ytitle } = props;
+  const style = useStyles();
 
   const options = {
     responsive: true,
@@ -47,11 +49,11 @@ export function LineChart(props: {
     scales: {
       x: {
         title: { display: true, text: xtitle },
-        grid: { color: "rgba(255, 255, 255, 0.1)" },
+        grid: { color: style.colors.gray.faint },
       },
       y: {
         title: { display: true, text: ytitle },
-        grid: { color: "rgba(255, 255, 255, 0.1)" },
+        grid: { color: style.colors.gray.faint },
       },
     },
   };
@@ -64,8 +66,8 @@ export function LineChart(props: {
     datasets: [
       {
         data: values,
-        backgroundColor: "#2a7dadff",
-        borderColor: "#2a7dadbd",
+        backgroundColor: style.colors.blue,
+        borderColor: style.colors.blue,
       },
     ],
   };

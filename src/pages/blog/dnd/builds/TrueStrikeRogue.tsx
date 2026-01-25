@@ -14,6 +14,7 @@ import {
 } from "d20attack.js";
 import { LineChart } from "../../../../components/LineChart";
 import { Link } from "react-router";
+import { useStyles } from "../../../../hooks/styles";
 
 // Pre-calculated data, to improve performance
 const Data = {
@@ -89,6 +90,8 @@ const Data = {
 };
 
 function BaseDamageChart() {
+  const style = useStyles();
+
   const [level, setLevel] = useState(3);
   const [ac, setAC] = useState(14);
 
@@ -111,7 +114,7 @@ function BaseDamageChart() {
   return (
     <div
       style={{
-        border: "solid 2px rgba(255, 255, 255, 0.2)",
+        border: style.colors.gray.dark,
         padding: "4px",
         borderRadius: "8px",
       }}
@@ -122,7 +125,7 @@ function BaseDamageChart() {
         target={target}
         advantage={advantage}
       />
-      <hr style={{ color: "rgba(255, 255, 255, 0.2)" }} />
+      <hr style={{ color: style.colors.gray.dark }} />
       <div
         style={{
           display: "grid",
@@ -212,6 +215,8 @@ function sorceryPoints(
 }
 
 function SorceryPointsGraph() {
+  const style = useStyles();
+
   const slots: [number, number][] = [
     [3, sorceryPoints(3, 0, 0, 0)],
     [4, sorceryPoints(3, 0, 0, 0)],
@@ -236,7 +241,7 @@ function SorceryPointsGraph() {
   return (
     <div
       style={{
-        border: "solid 2px rgba(255, 255, 255, 0.2)",
+        border: `solid 2px ${style.colors.gray.dark}`,
         padding: "4px",
         borderRadius: "8px",
       }}

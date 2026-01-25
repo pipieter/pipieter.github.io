@@ -16,6 +16,7 @@ import {
   type Attack,
   type Target,
 } from "d20attack.js";
+import { useStyles } from "../hooks/styles";
 
 ChartJS.register(
   CategoryScale,
@@ -36,6 +37,7 @@ export function AttackChart(props: {
   advantage: Advantage;
 }) {
   const { attack, title, target, advantage } = props;
+  const style = useStyles();
 
   const hitDistribution = Damages.distribution(attack.damages);
   const missDistribution = Damages.distribution(attack.missDamages);
@@ -85,7 +87,7 @@ export function AttackChart(props: {
     },
     scales: {
       y: {
-        grid: { color: "rgba(255, 255, 255, 0.1)" },
+        grid: { color: style.colors.gray.faint },
         stacked: true,
         ticks: {
           format: {
@@ -94,7 +96,7 @@ export function AttackChart(props: {
         },
       },
       x: {
-        grid: { color: "rgba(255, 255, 255, 0.1)" },
+        grid: { color: style.colors.gray.faint },
         stacked: true,
       },
     },
@@ -106,17 +108,17 @@ export function AttackChart(props: {
       {
         label: "Hit",
         data: labels.map((label) => hitActual.get(label)),
-        backgroundColor: "#2a7dadff",
+        backgroundColor: style.colors.blue,
       },
       {
         label: "Miss",
         data: labels.map((label) => missActual.get(label)),
-        backgroundColor: "#d83636ff",
+        backgroundColor: style.colors.red,
       },
       {
         label: "Crit",
         data: labels.map((label) => critActual.get(label)),
-        backgroundColor: "#68c568ff",
+        backgroundColor: style.colors.green,
       },
     ],
   };
