@@ -394,7 +394,8 @@ export function Blog_DND_Builds_TrueStrikeRogue() {
         the most basic weapons. As the rogue is very squishy, it is recommended
         to use a shortbow to attack from a safe distance. Should an enemy get up
         close, the rogue can switch over to a shortsword and deal an equivalent
-        amount of damage in melee range.
+        amount of damage in melee range. It is assumed that ability score
+        improvements are used for feats.
       </p>
       <p>
         As this is build is very charisma heavy to activate True Strike,
