@@ -17,7 +17,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Dices, House } from "lucide-react";
+import { Dices, House, UserRound } from "lucide-react";
 import { useNavigate } from "react-router";
 import { routes } from "../routes";
 import { ListSubheader } from "@mui/material";
@@ -166,6 +166,7 @@ export default function Sidebar(props: {
         <Divider />
         <List>
           <SidebarEntry route={routes.home} title="Home" icon={<House />} />
+          <SidebarEntry route={routes.aboutme} title="About me" icon={<UserRound />} />
         </List>
         <Divider />
         <ListSubheader>Blog</ListSubheader>

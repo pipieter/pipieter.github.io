@@ -9,6 +9,7 @@ import { Blog_DND_Builds_TrueStrikeRogue } from "./pages/blog/dnd/builds/TrueStr
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "./components/Sidebar.tsx";
 import { Blog_DND_Home } from "./pages/blog/dnd/builds/Home.tsx";
+import { AboutMe } from "./pages/AboutMe.tsx";
 
 const darkTheme = createTheme({
   palette: {
@@ -22,7 +23,8 @@ createRoot(document.getElementById("root")!).render(
     <HashRouter basename={import.meta.env.BASE_URL}>
       <Sidebar>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path={routes.home} element={<Home />} />
+          <Route path={routes.aboutme} element={<AboutMe />} />
           <Route path={routes.blog.dnd.home} element={<Blog_DND_Home />} />
           <Route
             path={routes.blog.dnd.builds.trueStrikeRogue}
