@@ -102,7 +102,11 @@ export function Home() {
         }}
       >
         {/* This website */}
-        <LinkButton to={"/"} icon={<Notebook size="24px" />} width="300px">
+        <LinkButton
+          to={"https://pipieterblog.wordpress.com/"}
+          icon={<Notebook size="24px" />}
+          width="300px"
+        >
           Personal Blog
         </LinkButton>
         <LinkButton
