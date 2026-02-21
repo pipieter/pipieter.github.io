@@ -12,20 +12,20 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --blog-width: 720px;
+  --home-width: 720px;
 
-  --color-blue: #2a7dad;
-  --color-blue-dark: #196591;
+  --color-main: #2a7dad;
+  --color-main-dark: #196591;
 }
 
 a {
   font-weight: 500;
-  color: var(--color-blue);
+  color: var(--color-main);
   text-decoration: inherit;
 }
 
 a:hover {
-  color: var(--color-blue-dark);
+  color: var(--color-main-dark);
 }
 
 body {
@@ -59,8 +59,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.blog-content {
-  max-width: var(--blog-width);
+.home {
+  max-width: var(--home-width);
 }
 
 .link-button {
@@ -71,7 +71,7 @@ button:focus-visible {
   align-items: center;
   text-align: center;
   border-radius: 8px;
-  border: 1px solid var(--color-blue);
+  border: 1px solid var(--color-main);
   padding: 0.4em 0.4em;
   font-size: 1em;
   font-weight: 500;
@@ -88,12 +88,12 @@ button:focus-visible {
   border: solid 1px transparent;
   border-radius: 8px;
   padding: 8px;
-  font-size: 100px;
+  font-size: 80px;
   cursor: copy;
 }
 
 .tool-icon:hover {
-  border-color: var(--color-blue);
+  border-color: var(--color-main);
 }
 
 .tool-icon-copied-popup {

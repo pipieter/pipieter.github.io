@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { useStyles } from "../hooks/styles";
 import { LinkButton } from "../components/LinkButton";
-import { routes } from "../routes";
-import { Mail, Notebook, UserRound } from "lucide-react";
+import { Mail, Notebook } from "lucide-react";
+import { ToolIcon } from "../components/ToolIcon";
 
 function LinkedInIcon(props: { size: string }) {
   return (
@@ -30,28 +30,22 @@ function GitHubIcon(props: { size: string; color: string }) {
   );
 }
 
-function SpotifyIcon(props: { size: string }) {
-  return (
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg"
-      width={props.size}
-      height={props.size}
-    />
-  );
-}
-
 export function Home() {
   const style = useStyles();
 
   return (
-    <div className="blog-content">
+    <div className="home">
       <h1>
         Hey, my name is{" "}
-        <span style={{ color: style.colors.blue }}>Pim Pieters</span>.
+        <span style={{ color: style.colors.main }}>Pim Pieters</span>.
       </h1>
       <p>
-        I'm a software developer from Belgium. My hobbies include programming,
-        playing video games, listening to music, and literature.
+        I'm a software developer from Belgium with a Master's Degree in
+        Informatica at the{" "}
+        <Link to={"https://www.ugent.be/en"}> University of Ghent</Link>. I have
+        a passion for software, and I love both theoretical and practical
+        optimizations. Aside from programming, playing video games (particularly
+        with friends), tabletops, listening to music, and literature.
       </p>
       <p>
         I am currently reading{" "}
@@ -60,15 +54,13 @@ export function Home() {
         </Link>
         .
       </p>
-
+      <br />
       {/* Current projects */}
-      <hr style={{ color: style.colors.gray.faint }} />
       <h2>Current projects</h2>
       <p>
-        In my spare time I like to program and write code. Listed below are
-        several projects I have worked on recently.
+        In my spare time I like to code. Listed below are several projects I
+        have worked on recently.
       </p>
-
       <div
         style={{
           display: "grid",
@@ -79,7 +71,10 @@ export function Home() {
         <Link to="https://github.com/DaFrankort/lenny-dnd-bot">
           Lenny D&D bot
         </Link>
-        <span>Discord bot to help play D&D, written in Python.</span>
+        <span>
+          Discord bot to help play tabletop games, and in specific D&D, written
+          in Python.
+        </span>
 
         <Link to="https://github.com/pipieter/neat-headers">neat headers</Link>
         <span>Collection of single header C++20 libraries.</span>
@@ -95,36 +90,25 @@ export function Home() {
           rolls.
         </span>
       </div>
-      {/* Buttons */}
-      <hr style={{ color: style.colors.gray.faint }} />
+      <br />
+      {/* Contact */}
       <h2>Contact</h2>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "auto auto auto",
+          gridTemplateColumns: "auto auto",
           rowGap: "20px",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
         }}
       >
         {/* This website */}
-        <LinkButton
-          to={routes.aboutme}
-          icon={<UserRound size="24px" />}
-          width="200px"
-        >
-          About me
-        </LinkButton>
-        <LinkButton
-          to={routes.blog.home}
-          icon={<Notebook size="24px" />}
-          width="200px"
-        >
-          Blog
+        <LinkButton to={"/"} icon={<Notebook size="24px" />} width="300px">
+          Personal Blog
         </LinkButton>
         <LinkButton
           to={"mailto:pim@pieters.tv"}
           icon={<Mail size="24px" />}
-          width="200px"
+          width="300px"
         >
           Mail
         </LinkButton>
@@ -134,7 +118,7 @@ export function Home() {
           to={"https://www.linkedin.com/in/pim-pieters-79866014a"}
           icon={<LinkedInIcon size="24px" />}
           color="#007ebb"
-          width="200px"
+          width="300px"
         >
           LinkedIn
         </LinkButton>
@@ -142,20 +126,56 @@ export function Home() {
           to={"https://github.com/pipieter/"}
           icon={<GitHubIcon size="24px" color="#e6e6e6ff" />}
           color="#e6e6e6ff"
-          width="200px"
+          width="300px"
         >
           GitHub
         </LinkButton>
-        <LinkButton
-          to={
-            "https://open.spotify.com/user/bfy87mflj03c1m5ki7hc1p3rg?si=0b50989af1dd4d6d"
-          }
-          icon={<SpotifyIcon size="24px" />}
-          color="#1db954"
-          width="200px"
+      </div>
+      <br />
+      {/* Tech stack */}
+      <div>
+        <h2>Technology</h2>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "32px",
+            justifyContent: "space-evenly",
+          }}
         >
-          Spotify
-        </LinkButton>
+          <ToolIcon name="C" icon="devicon-c-original" />
+          <ToolIcon name="C++" icon="devicon-cplusplus-plain" />
+          <ToolIcon name="C#" icon="devicon-csharp-plain" />
+          <ToolIcon name="Python" icon="devicon-python-plain" />
+          <ToolIcon name="Java" icon="devicon-java-plain" />
+          <ToolIcon name="Rust" icon="devicon-rust-line" />
+          <ToolIcon name="Lua" icon="devicon-lua-plain" />
+          <ToolIcon name="JavaScript" icon="devicon-javascript-plain" />
+          <ToolIcon name="TypeScript" icon="devicon-typescript-plain" />
+          <ToolIcon name="HTML5" icon="devicon-html5-plain" />
+          <ToolIcon name="React" icon="devicon-react-plain" />
+          <ToolIcon name="Postgres" icon="devicon-postgresql-plain" />
+          <ToolIcon name="MongoDB" icon="devicon-mongodb-plain" />
+          <ToolIcon name="Docker" icon="devicon-docker-plain" />
+          <ToolIcon name="Monogame" icon="devicon-monogame-plain" />
+        </div>
+        <br />
+        <h2>Tools</h2>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "32px",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <ToolIcon name="Debian" icon="devicon-debian-plain" />
+          <ToolIcon name="Windows 11" icon="devicon-windows11-plain" />
+          <ToolIcon name="Firefox" icon="devicon-firefox-plain" />
+          <ToolIcon name="VS Code" icon="devicon-vscode-plain" />
+          <ToolIcon name="Photoshop" icon="devicon-photoshop-plain" />
+        </div>
+        <br />
       </div>
     </div>
   );

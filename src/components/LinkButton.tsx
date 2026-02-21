@@ -7,7 +7,7 @@ export function LinkButton(props: {
   icon?: JSX.Element;
   color?: string;
   width?: string;
-  children?: any;
+  children?: JSX.Element | JSX.Element[] | string;
 }) {
   const style = useStyles();
 
@@ -17,12 +17,12 @@ export function LinkButton(props: {
       className="link-button"
       style={{
         width: props.width ?? "fit-content",
-        borderColor: props.color ?? style.colors.blue,
+        borderColor: props.color ?? style.colors.main,
         fontSize: "20px",
       }}
     >
       {props.icon ? <>{props.icon} </> : <></>}
-      <span style={{ color: props.color ?? style.colors.blue }}>
+      <span style={{ color: props.color ?? style.colors.main }}>
         {props.children}
       </span>
     </Link>

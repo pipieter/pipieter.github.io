@@ -1,6 +1,10 @@
 export function useStyles() {
-  return {
+  const style = {
     colors: {
+      main: "",
+      mainDark: "",
+      orange: "#c36726",
+      orangeDark: "#a5561eff",
       blue: "#2a7dadff",
       blueDark: "#196591ff",
       red: "#d83636ff",
@@ -11,4 +15,8 @@ export function useStyles() {
       },
     },
   };
+  style.colors.main = style.colors.blue;
+  style.colors.mainDark = style.colors.blueDark;
+
+  return style;
 }

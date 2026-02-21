@@ -5,8 +5,7 @@ export function ToolIcon(props: { name: string; icon: string }) {
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
 
   const onClick = useCallback(
-    async function (event: any) {
-      console.log("A");
+    async function (event: React.MouseEvent<HTMLElement>) {
       try {
         await navigator.clipboard.writeText(props.name);
         setCopied(true);
@@ -18,7 +17,7 @@ export function ToolIcon(props: { name: string; icon: string }) {
         console.error("Failed to copy: ", err);
       }
     },
-    [setCopied],
+    [setCopied, setPopupPosition, props.name],
   );
 
   return (
@@ -28,7 +27,7 @@ export function ToolIcon(props: { name: string; icon: string }) {
         <div
           className="tool-icon-copied-popup"
           style={{
-            left: `${popupPosition.x+10}px`,
+            left: `${popupPosition.x + 10}px`,
             top: `${popupPosition.y}px`,
             transform: "translate(-50%, -100%)", // Center the popup above the click point
           }}

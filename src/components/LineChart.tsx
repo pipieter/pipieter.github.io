@@ -37,7 +37,7 @@ export function LineChart(props: {
   const { entries, title, xtitle, ytitle } = props;
   const style = useStyles();
 
-  const options = {
+  const options: object = {
     responsive: true,
     plugins: {
       legend: false,
@@ -72,9 +72,5 @@ export function LineChart(props: {
     ],
   };
 
-  return (
-    <div>
-      <Line options={options} data={data} />
-    </div>
-  );
+  return <Line options={options} data={data} />;
 }
