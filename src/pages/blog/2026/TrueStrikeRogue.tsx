@@ -13,7 +13,6 @@ import { LineChart } from "../../../components/LineChart";
 import {
   Card,
   FormControlLabel,
-  FormLabel,
   Radio,
   RadioGroup,
   Table,
@@ -586,26 +585,22 @@ export function Blog_2026_TrueStrikeRogue() {
       </div>
       <br />
       <div style={{ display: "flex", justifyContent: "center", gap: "64px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <FormLabel>Armor class</FormLabel>
-          <NumberSpinner
-            size="small"
-            min={10}
-            max={30}
-            value={ac}
-            onValueChange={(ac) => setAC(ac || 10)}
-          />
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <FormLabel>Level</FormLabel>
-          <NumberSpinner
-            size="small"
-            min={1}
-            max={20}
-            value={level}
-            onValueChange={(level) => setLevel(level || 1)}
-          />
-        </div>
+        <NumberSpinner
+          label="Armor class"
+          min={10}
+          max={30}
+          default={10}
+          value={ac}
+          onChange={setAC}
+        />
+        <NumberSpinner
+          label="Level"
+          min={1}
+          max={20}
+          value={level}
+          default={1}
+          onChange={setLevel}
+        />
       </div>
       <h2>Graphs</h2>
       <p>

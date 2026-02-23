@@ -9,7 +9,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 
-export default function NumberSpinner({
+function BaseNumberSpinner({
   id: idProp,
   label,
   error,
@@ -155,5 +155,39 @@ export default function NumberSpinner({
         </BaseNumberField.Increment>
       </Box>
     </BaseNumberField.Root>
+  );
+}
+
+export default function NumberSpinner({
+  label,
+  min,
+  max,
+  value,
+  default: defaultValue,
+  onChange,
+  size = "small",
+  symbol,
+}: {
+  label: string;
+  min: number;
+  max: number;
+  value: number;
+  default: number;
+  onChange: (value: number) => void;
+  size?: "small" | "medium";
+  symbol?: boolean;
+}) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+      <FormLabel>{label}</FormLabel>
+      <BaseNumberSpinner
+        min={min}
+        max={max}
+        value={value}
+        size={size ?? "small"}
+        onValueChange={(value) => onChange(value || defaultValue)}
+        format={symbol ? { signDisplay: "always" } : { signDisplay: "auto" }}
+      />
+    </div>
   );
 }
