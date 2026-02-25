@@ -36,30 +36,25 @@ export function Home() {
   return (
     <div className="home">
       <h1>
-        Hey, my name is{" "}
-        <span style={{ color: style.colors.main }}>Pim Pieters</span>.
+        Hey, my name is <span style={{ color: style.colors.main }}>Pim Pieters</span>.
       </h1>
       <p>
-        I'm a software developer from Belgium with a Master's Degree in
-        Informatica at the{" "}
-        <Link to={"https://www.ugent.be/en"}> University of Ghent</Link>. I have
-        a passion for software, and I love both theoretical and practical
-        optimizations. Aside from programming, playing video games (particularly
-        with friends), tabletops, listening to music, and literature.
+        I'm a software developer from Belgium with a Master's Degree in Informatica at the{" "}
+        <Link to={"https://www.ugent.be/en"}> University of Ghent</Link>. I have a passion for
+        software, and I love both theoretical and practical optimizations. Aside from programming,
+        playing video games (particularly with friends), tabletops, listening to music, and
+        literature.
       </p>
       <p>
         I am currently reading{" "}
-        <Link to={"https://en.wikipedia.org/wiki/1Q84"}>
-          1Q84 by Haruki Murakami
-        </Link>
-        .
+        <Link to={"https://en.wikipedia.org/wiki/1Q84"}>1Q84 by Haruki Murakami</Link>.
       </p>
       <br />
       {/* Current projects */}
       <h2>Current projects</h2>
       <p>
-        In my spare time I like to code. Listed below are several projects I
-        have worked on recently.
+        In my spare time I like to code. Listed below are several projects I have worked on
+        recently.
       </p>
       <div
         style={{
@@ -68,27 +63,19 @@ export function Home() {
           rowGap: "8px",
         }}
       >
-        <Link to="https://github.com/DaFrankort/lenny-dnd-bot">
-          Lenny D&D bot
-        </Link>
+        <Link to="https://github.com/DaFrankort/lenny-dnd-bot">Lenny D&D bot</Link>
         <span>
-          Discord bot to help play tabletop games, and in specific D&D, written
-          in Python.
+          Discord bot to help play tabletop games, and in specific D&D, written in Python.
         </span>
 
         <Link to="https://github.com/pipieter/neat-headers">neat headers</Link>
         <span>Collection of single header C++20 libraries.</span>
 
-        <Link to="https://github.com/pipieter/d20distribution">
-          d20distribution
-        </Link>
+        <Link to="https://github.com/pipieter/d20distribution">d20distribution</Link>
         <span>Python library to calculate the distribution of dice rolls.</span>
 
         <Link to="https://github.com/pipieter/d20js">d20js</Link>
-        <span>
-          JavaScript library to simulate and calculate the distribution of dice
-          rolls.
-        </span>
+        <span>JavaScript library to simulate and calculate the distribution of dice rolls.</span>
       </div>
       <br />
       {/* Contact */}
@@ -109,11 +96,7 @@ export function Home() {
         >
           Personal Blog
         </LinkButton>
-        <LinkButton
-          to={"mailto:pim@pieters.tv"}
-          icon={<Mail size="24px" />}
-          width="300px"
-        >
+        <LinkButton to={"mailto:pim@pieters.tv"} icon={<Mail size="24px" />} width="300px">
           Mail
         </LinkButton>
 

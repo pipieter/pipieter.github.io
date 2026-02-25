@@ -22,9 +22,7 @@ export function LinkButton(props: {
       }}
     >
       {props.icon ? <>{props.icon} </> : <></>}
-      <span style={{ color: props.color ?? style.colors.main }}>
-        {props.children}
-      </span>
+      <span style={{ color: props.color ?? style.colors.main }}>{props.children}</span>
     </Link>
   );
 }

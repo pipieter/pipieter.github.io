@@ -23,10 +23,7 @@ import {
   TableRow,
 } from "@mui/material";
 import NumberSpinner from "../../../components/NumberSpinner";
-import {
-  BaselineAttackChart,
-  TargetAttackChart,
-} from "../../../components/AttackChart";
+import { BaselineAttackChart, TargetAttackChart } from "../../../components/AttackChart";
 import { Link } from "react-router";
 import { applyAdvantageToHitChance } from "../../../calc/hit";
 import { Collapsable } from "../../../components/Collapsable";
@@ -156,8 +153,7 @@ abstract class TrueStrikeRogue {
     const slots = Spells.slots(casterLevel);
 
     let points = sorcererLevel;
-    for (const [slot, amount] of slots.entries())
-      points += Data.SorceryPoints(slot) * amount;
+    for (const [slot, amount] of slots.entries()) points += Data.SorceryPoints(slot) * amount;
 
     return points;
   }
@@ -282,9 +278,7 @@ abstract class TrueStrikeRogue {
           </TableCell>
           <TableCell align="center">{progression.sneakAttack}d6</TableCell>
           <TableCell align="center">{progression.trueStrike}d6</TableCell>
-          <TableCell align="center">
-            {advantages[progression.advantage]}
-          </TableCell>
+          <TableCell align="center">{advantages[progression.advantage]}</TableCell>
           <TableCell>{progression.notes}</TableCell>
         </TableRow>,
       );
@@ -431,8 +425,7 @@ class FighterDipTrueStrikeRogue extends TrueStrikeRogue {
     const proficiency = Proficiency.get(level);
     const abilityScore = Data.AbilityScore[rogueLevel];
 
-    const className =
-      level <= 2 ? "Sorcerer" : level === 3 ? "Fighter" : "Rogue";
+    const className = level <= 2 ? "Sorcerer" : level === 3 ? "Fighter" : "Rogue";
 
     let hit = proficiency + abilityScore;
     let weapon = "1d6"; // Short bow
@@ -480,8 +473,7 @@ class FighterDipTrueStrikeRogue extends TrueStrikeRogue {
 
 class ElvenAccuracyFighterDipTrueStrikeRogue extends FighterDipTrueStrikeRogue {
   public readonly name = "Elven accuracy and fighter dip variant";
-  public readonly description =
-    "A combination of the elven accuracy feat and the fighter dip.";
+  public readonly description = "A combination of the elven accuracy feat and the fighter dip.";
 
   public progression(level: number): TrueStrikeRogueProgression {
     const progression = super.progression(level);
@@ -512,34 +504,28 @@ export function Blog_2026_TrueStrikeRogue() {
       <div>
         <h1>True Strike Rogue - Graphs</h1>
         <p>
-          This page contains the graphs and calculations used for the true
-          strike rogue article I wrote. Four separate builds are analyzed:
+          This page contains the graphs and calculations used for the true strike rogue article I
+          wrote. Four separate builds are analyzed:
         </p>
         <ul>
           <li>
-            The base true strike rogue build, with two levels into sorcerer and
-            the rest into rogue.
+            The base true strike rogue build, with two levels into sorcerer and the rest into rogue.
+          </li>
+          <li>The base build, but with the elven accuracy feat taken at character level six.</li>
+          <li>
+            The base build, but with a fighter dip at character level three for the archery fighting
+            style and longbow proficiency.
           </li>
           <li>
-            The base build, but with the elven accuracy feat taken at character
-            level six.
-          </li>
-          <li>
-            The base build, but with a fighter dip at character level three for
-            the archery fighting style and longbow proficiency.
-          </li>
-          <li>
-            The base build, but with both a fighter dip taken at character level
-            three and elven accuracy taken at character level six.
+            The base build, but with both a fighter dip taken at character level three and elven
+            accuracy taken at character level six.
           </li>
         </ul>
         <p>
-          Several graphs are calculated for each build. The first graph shows
-          the evolution of the damage per attack against a configurable armor
-          class. The second graph shows the breakdown of the damage at a
-          specific level, showing the miss, hit, and critical hit odds. The
-          charts are made using{" "}
-          <Link to={"https://www.chartjs.org/"}>Chart.js</Link>, and can be
+          Several graphs are calculated for each build. The first graph shows the evolution of the
+          damage per attack against a configurable armor class. The second graph shows the breakdown
+          of the damage at a specific level, showing the miss, hit, and critical hit odds. The
+          charts are made using <Link to={"https://www.chartjs.org/"}>Chart.js</Link>, and can be
           saved. Importantly, all graphs calculated assume that{" "}
           <b style={{ textDecoration: "underline" }}>
             a source of advantage, such as innate sorcery, is active
@@ -547,17 +533,15 @@ export function Blog_2026_TrueStrikeRogue() {
           .
         </p>
         <p>
-          Additionally, a progression table is shared for each build. These
-          contain the values used for the calculations at each level, with some
-          additional explanations. These tables show basic outlines, and can be
-          optimized even further (e.g. the fighter dip taking great weapon
-          master at character level 15 for even more damage with the longbow).
-          These tables also assume no magic items.
+          Additionally, a progression table is shared for each build. These contain the values used
+          for the calculations at each level, with some additional explanations. These tables show
+          basic outlines, and can be optimized even further (e.g. the fighter dip taking great
+          weapon master at character level 15 for even more damage with the longbow). These tables
+          also assume no magic items.
         </p>
         <p>
-          Finally, a chart with the amount of sorcery points is given per level.
-          This chart assumes that all spell slots the rogue has will be
-          converted to sorcery points.
+          Finally, a chart with the amount of sorcery points is given per level. This chart assumes
+          that all spell slots the rogue has will be converted to sorcery points.
         </p>
       </div>
       <h2>Config</h2>
@@ -568,11 +552,7 @@ export function Blog_2026_TrueStrikeRogue() {
           display: "flex",
         }}
       >
-        <RadioGroup
-          row
-          value={selected}
-          onChange={(_, value) => setSelected(value)}
-        >
+        <RadioGroup row value={selected} onChange={(_, value) => setSelected(value)}>
           {builds.map((build) => (
             <FormControlLabel
               key={`radio-button-${build.name}`}
@@ -604,48 +584,33 @@ export function Blog_2026_TrueStrikeRogue() {
       </div>
       <h2>Graphs</h2>
       <p>
-        As a reminder, for the graphs it is assumed that the rogue has advantage
-        on all of its attacks. The sections are collapsable to make interactions
-        with the input above easier.
+        As a reminder, for the graphs it is assumed that the rogue has advantage on all of its
+        attacks. The sections are collapsable to make interactions with the input above easier.
       </p>
       <Collapsable label="Damage of a single attack assuming a base 65% hit chance.">
         <p>
-          Note: for the fighter dip, the base hit chance is increased at
-          character level three to 75% because of the archery fighting style.
+          Note: for the fighter dip, the base hit chance is increased at character level three to
+          75% because of the archery fighting style.
         </p>
-        <div style={{ display: "block", width: "1150px" }}>
-          {build.baselineLineChart()}
-        </div>
-        <div style={{ display: "block", width: "1150px" }}>
-          {build.baselineAttackChart(level)}
-        </div>
+        <div style={{ display: "block", width: "1150px" }}>{build.baselineLineChart()}</div>
+        <div style={{ display: "block", width: "1150px" }}>{build.baselineAttackChart(level)}</div>
       </Collapsable>
       <br />
 
       <Collapsable label="Damage of a single attack against a specific target">
-        <div style={{ display: "block", width: "1150px" }}>
-          {build.targetLineChart(target)}
-        </div>
-        <div style={{ display: "block", width: "1150px" }}>
-          {build.attackChart(level, target)}
-        </div>
+        <div style={{ display: "block", width: "1150px" }}>{build.targetLineChart(target)}</div>
+        <div style={{ display: "block", width: "1150px" }}>{build.attackChart(level, target)}</div>
       </Collapsable>
       <br />
 
       <Collapsable label="Progression table">
-        <div style={{ display: "block", width: "1000px" }}>
-          {build.progressionTable()}
-        </div>
+        <div style={{ display: "block", width: "1000px" }}>{build.progressionTable()}</div>
       </Collapsable>
       <br />
 
       <Collapsable label="Sorcery points">
-        <div style={{ display: "block", width: "1000px" }}>
-          {build.sorceryPointsChart()}
-        </div>
-        <div style={{ display: "block", width: "1000px" }}>
-          {build.quickenedCastChart()}
-        </div>
+        <div style={{ display: "block", width: "1000px" }}>{build.sorceryPointsChart()}</div>
+        <div style={{ display: "block", width: "1000px" }}>{build.quickenedCastChart()}</div>
       </Collapsable>
       <br />
     </div>

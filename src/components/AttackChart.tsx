@@ -15,15 +15,7 @@ import { useStyles } from "../hooks/styles";
 import type { Distribution } from "d20js";
 import { applyAdvantageToHitChance } from "../calc/hit";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  SubTitle,
-  Tooltip,
-  Legend,
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, SubTitle, Tooltip, Legend);
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -37,36 +29,16 @@ function AttackChart(props: {
   miss: number;
 }) {
   {
-    const {
-      title,
-      hitDistribution,
-      critDistribution,
-      missDistribution,
-      hit,
-      crit,
-      miss,
-    } = props;
+    const { title, hitDistribution, critDistribution, missDistribution, hit, crit, miss } = props;
     const style = useStyles();
 
-    const min = Math.min(
-      hitDistribution.min(),
-      missDistribution.min(),
-      critDistribution.min(),
-    );
+    const min = Math.min(hitDistribution.min(), missDistribution.min(), critDistribution.min());
 
-    const max = Math.max(
-      hitDistribution.max(),
-      missDistribution.max(),
-      critDistribution.max(),
-    );
+    const max = Math.max(hitDistribution.max(), missDistribution.max(), critDistribution.max());
 
     const hitActual = hitDistribution.transformValues((value) => value * hit);
-    const missActual = missDistribution.transformValues(
-      (value) => value * miss,
-    );
-    const critActual = critDistribution.transformValues(
-      (value) => value * crit,
-    );
+    const missActual = missDistribution.transformValues((value) => value * miss);
+    const critActual = critDistribution.transformValues((value) => value * crit);
 
     const mean = hitActual.mean() + missActual.mean() + critActual.mean();
     const stddev = Math.sqrt(
@@ -87,9 +59,7 @@ function AttackChart(props: {
         },
         subtitle: {
           display: true,
-          text: `mean ${mean.toFixed(2)}, standard deviation ${stddev.toFixed(
-            2,
-          )}`,
+          text: `mean ${mean.toFixed(2)}, standard deviation ${stddev.toFixed(2)}`,
         },
       },
       scales: {

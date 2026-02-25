@@ -78,10 +78,7 @@ function BaseNumberSpinner({
           {label}
         </FormLabel>
         <BaseNumberField.ScrubAreaCursor>
-          <OpenInFullIcon
-            fontSize="small"
-            sx={{ transform: "translateY(12.5%) rotate(45deg)" }}
-          />
+          <OpenInFullIcon fontSize="small" sx={{ transform: "translateY(12.5%) rotate(45deg)" }} />
         </BaseNumberField.ScrubAreaCursor>
       </BaseNumberField.ScrubArea>
       <Box sx={{ display: "flex" }}>
@@ -120,10 +117,8 @@ function BaseNumberSpinner({
                 input: {
                   ...props,
                   size:
-                    Math.max(
-                      (other.min?.toString() || "").length,
-                      state.inputValue.length || 1,
-                    ) + 1,
+                    Math.max((other.min?.toString() || "").length, state.inputValue.length || 1) +
+                    1,
                   sx: {
                     textAlign: "center",
                   },
