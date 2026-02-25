@@ -501,6 +501,7 @@ export function Blog_2026_TrueStrikeRogue() {
 
   return (
     <div style={{ maxWidth: "1200px", textAlign: "justify" }}>
+      <title>True Strike Rogue</title>
       <div>
         <h1>True Strike Rogue - Graphs</h1>
         <p>
