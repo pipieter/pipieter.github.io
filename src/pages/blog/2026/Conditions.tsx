@@ -242,7 +242,43 @@ export function Blog_2026_ConditionBuilds() {
 
   return (
     <div style={{ maxWidth: "1200px", textAlign: "justify" }}>
-      <title>Conditions</title>
+      <title>Conditions monk</title>
+      <h1>Conditions monk</h1>
+      <p>
+        This page contains the simulations for the conditions monk, a hill goliath monk (warrior of
+        mercy, six levels) and fighter (battle master, three levels) multiclass to inflict as many
+        status conditions as possible in one turn. In order to do so, the monk will hit an enemy
+        once per turn and activate the following effects in order:
+      </p>
+      <ol>
+        <li>Inflict the prone condition (hill's tumble, guaranteed)</li>
+        <li>Inflict the poisoned condition (physician's touch, guaranteed)</li>
+        <li>
+          Inflict the stunned condition (stunning strike, constitution saving throw, one attempt per
+          turn)
+        </li>
+        <li>
+          Use a battle master maneuver
+          <ul>
+            <li>
+              If not frightened inflict the frightened condition (menacing strike, wisdom saving
+              throw)
+            </li>
+            <li>Otherwise, disarm the target (disarming strike, strength saving throw)</li>
+          </ul>
+        </li>
+        <li>Inflict the grappled condition (grapple action, strength or dexterity saving throw)</li>
+      </ol>
+      <p>
+        The first attack of the monk that hits will both be a grapple attempt as an unarmed strike,
+        due to the grappler feat. This guarantees that all attacks that hit are grapple attempts,
+        and that physician's touch and hill's tumble activate.
+      </p>
+      <p>
+        Due to the complexity of the attack order and conditional activation effects, simulations
+        are used rather than direct calculations. These calculations have proven to be stable,
+        especially for a hundred thousand to a million simulations.
+      </p>
       {/* Player configuration */}
       <h2>Configuration</h2>
       <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-start" }}>
