@@ -14,11 +14,13 @@ function BaseNumberSpinner({
   label,
   error,
   size = "medium",
+  width,
   ...other
 }: BaseNumberField.Root.Props & {
   label?: React.ReactNode;
   size?: "small" | "medium";
   error?: boolean;
+  width?: string;
 }) {
   let id = React.useId();
   if (idProp) {
@@ -127,6 +129,7 @@ function BaseNumberSpinner({
               sx={{ pr: 0, borderRadius: 0, flex: 1 }}
             />
           )}
+          style={{ width: width }}
         />
 
         <BaseNumberField.Increment
@@ -163,7 +166,7 @@ export default function NumberSpinner({
   size = "small",
   symbol,
 }: {
-  label: string;
+  label?: string;
   min: number;
   max: number;
   value: number;
@@ -174,7 +177,7 @@ export default function NumberSpinner({
 }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-      <FormLabel>{label}</FormLabel>
+      {label ? <FormLabel>{label}</FormLabel> : <></>}
       <BaseNumberSpinner
         min={min}
         max={max}
