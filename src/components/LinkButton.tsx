@@ -4,10 +4,9 @@ import { useStyles } from "../hooks/styles";
 
 export function LinkButton(props: {
   to: string;
-  icon?: JSX.Element;
   color?: string;
   width?: string;
-  children?: JSX.Element | JSX.Element[] | string;
+  children?: (JSX.Element | JSX.Element[] | string)[];
 }) {
   const style = useStyles();
 
@@ -20,9 +19,18 @@ export function LinkButton(props: {
         borderColor: props.color ?? style.colors.main,
         fontSize: "20px",
       }}
+      target="_blank"
     >
-      {props.icon ? <>{props.icon} </> : <></>}
-      <span style={{ color: props.color ?? style.colors.main }}>{props.children}</span>
+      <span
+        style={{
+          color: props.color ?? style.colors.main,
+          display: "flex",
+          gap: "4px",
+          alignItems: "center",
+        }}
+      >
+        {props.children}
+      </span>
     </Link>
   );
 }
