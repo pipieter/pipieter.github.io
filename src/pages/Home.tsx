@@ -2,167 +2,134 @@ import { Link } from "react-router";
 import { useStyles } from "../hooks/styles";
 import { LinkButton } from "../components/LinkButton";
 import { Mail, Notebook } from "lucide-react";
-import { ToolIcon } from "../components/ToolIcon";
-
-function LinkedInIcon(props: { size: string }) {
-  return (
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
-      width={props.size}
-      height={props.size}
-    />
-  );
-}
-
-function GitHubIcon(props: { size: string; color: string }) {
-  // SVG source taken from https://devicon.dev/
-  return (
-    <svg viewBox="0 0 128 128" width={props.size} height={props.size}>
-      <g fill={props.color}>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"
-        ></path>
-        <path d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
-      </g>
-    </svg>
-  );
-}
 
 export function Home() {
   const style = useStyles();
 
   return (
-    <div className="home">
-      <h1>
-        Hey, my name is <span style={{ color: style.colors.main }}>Pim Pieters</span>.
-      </h1>
-      <p>
-        I'm a software developer from Belgium with a Master's Degree in Informatica at the{" "}
-        <Link to={"https://www.ugent.be/en"}> University of Ghent</Link>. I have a passion for
-        software, and I love both theoretical and practical optimizations. Aside from programming,
-        playing video games (particularly with friends), tabletops, listening to music, and
-        literature.
-      </p>
-      <p>
-        I am currently reading{" "}
-        <Link to={"https://en.wikipedia.org/wiki/1Q84"}>1Q84 by Haruki Murakami</Link>.
-      </p>
-      <br />
-      {/* Current projects */}
-      <h2>Current projects</h2>
-      <p>
-        In my spare time I like to code. Listed below are several projects I have worked on
-        recently.
-      </p>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "150px auto",
-          rowGap: "8px",
-        }}
-      >
-        <Link to="https://github.com/DaFrankort/lenny-dnd-bot">Lenny D&D bot</Link>
-        <span>
-          Discord bot to help play tabletop games, and in specific D&D, written in Python.
-        </span>
+    <div>
+      <div className="home">
+        {/* About me section */}
+        <div className="home-column">
+          {/* Introduction */}
+          <div>
+            <div style={{ textAlign: "center" }}>
+              <img src="/img/me.png" className="profile-picture" width={"200px"} />
+            </div>
+            <h1>
+              Hey, I'm <span style={{ color: style.colors.main }}>Pim Pieters</span>.
+            </h1>
+            <p style={{ marginLeft: "10px", marginRight: "10px" }}>
+              I'm a software developer from Belgium with a Master's Degree in Informatica at the{" "}
+              <Link to={"https://www.ugent.be/en"} target="_blank">
+                University of Ghent
+              </Link>
+              . I have a passion for software, with a strong interest in back-end development,
+              databases, and performance optimizations. Aside from programming, my hobbies include
+              playing video games (particularly with friends), playing tabletops, listening to
+              music, and reading.
+            </p>
+          </div>
+          {/* Contact details */}
+          <hr style={{ marginTop: "32px", marginBottom: "32px" }} />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "auto auto",
+              rowGap: "20px",
+              justifyContent: "space-around",
+            }}
+          >
+            <LinkButton to={"https://pipieterblog.wordpress.com/"} width="200px">
+              <Notebook size="24px" /> Personal Blog
+            </LinkButton>
+            <LinkButton to={"mailto:pim@pieters.tv"} width="200px">
+              <Mail size={"24px"} />
+              Mail
+            </LinkButton>
 
-        <Link to="https://github.com/pipieter/neat-headers">neat headers</Link>
-        <span>Collection of single header C++20 libraries.</span>
-
-        <Link to="https://github.com/pipieter/d20distribution">d20distribution</Link>
-        <span>Python library to calculate the distribution of dice rolls.</span>
-
-        <Link to="https://github.com/pipieter/d20js">d20js</Link>
-        <span>JavaScript library to simulate and calculate the distribution of dice rolls.</span>
-      </div>
-      <br />
-      {/* Contact */}
-      <h2>Contact</h2>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "auto auto",
-          rowGap: "20px",
-          justifyContent: "space-around",
-        }}
-      >
-        {/* This website */}
-        <LinkButton
-          to={"https://pipieterblog.wordpress.com/"}
-          icon={<Notebook size="24px" />}
-          width="300px"
-        >
-          Personal Blog
-        </LinkButton>
-        <LinkButton to={"mailto:pim@pieters.tv"} icon={<Mail size="24px" />} width="300px">
-          Mail
-        </LinkButton>
-
-        {/* Social media */}
-        <LinkButton
-          to={"https://www.linkedin.com/in/pim-pieters-79866014a"}
-          icon={<LinkedInIcon size="24px" />}
-          color="#007ebb"
-          width="300px"
-        >
-          LinkedIn
-        </LinkButton>
-        <LinkButton
-          to={"https://github.com/pipieter/"}
-          icon={<GitHubIcon size="24px" color="#e6e6e6ff" />}
-          color="#e6e6e6ff"
-          width="300px"
-        >
-          GitHub
-        </LinkButton>
-      </div>
-      <br />
-      {/* Tech stack */}
-      <div>
-        <h2>Technology</h2>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "32px",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <ToolIcon name="C" icon="devicon-c-original" />
-          <ToolIcon name="C++" icon="devicon-cplusplus-plain" />
-          <ToolIcon name="C#" icon="devicon-csharp-plain" />
-          <ToolIcon name="Python" icon="devicon-python-plain" />
-          <ToolIcon name="Java" icon="devicon-java-plain" />
-          <ToolIcon name="Rust" icon="devicon-rust-line" />
-          <ToolIcon name="Lua" icon="devicon-lua-plain" />
-          <ToolIcon name="JavaScript" icon="devicon-javascript-plain" />
-          <ToolIcon name="TypeScript" icon="devicon-typescript-plain" />
-          <ToolIcon name="HTML5" icon="devicon-html5-plain" />
-          <ToolIcon name="React" icon="devicon-react-plain" />
-          <ToolIcon name="Postgres" icon="devicon-postgresql-plain" />
-          <ToolIcon name="MongoDB" icon="devicon-mongodb-plain" />
-          <ToolIcon name="Docker" icon="devicon-docker-plain" />
-          <ToolIcon name="Monogame" icon="devicon-monogame-plain" />
+            {/* Social media */}
+            <LinkButton
+              to={"https://www.linkedin.com/in/pim-pieters-79866014a"}
+              color="#007ebb"
+              width="200px"
+            >
+              <i className={"devicon-linkedin-plain"} />
+              LinkedIn
+            </LinkButton>
+            <LinkButton to={"https://github.com/pipieter/"} width="200px">
+              <i className={"devicon-github-plain"} />
+              GitHub
+            </LinkButton>
+          </div>
         </div>
-        <br />
-        <h2>Tools</h2>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "32px",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <ToolIcon name="Debian" icon="devicon-debian-plain" />
-          <ToolIcon name="Windows 11" icon="devicon-windows11-plain" />
-          <ToolIcon name="Firefox" icon="devicon-firefox-plain" />
-          <ToolIcon name="VS Code" icon="devicon-vscode-plain" />
-          <ToolIcon name="Photoshop" icon="devicon-photoshop-plain" />
+        {/* Projects and tech */}
+        <div className="home-column">
+          {/* Tech stack */}
+          <div>
+            <h2>Preferred technology</h2>
+            <hr />
+            <br />
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "32px",
+                justifyContent: "space-evenly",
+              }}
+            >
+              <i className={`devicon-cplusplus-plain tool-icon`} />
+              <i className={`devicon-csharp-plain tool-icon`} />
+              <i className={`devicon-java-plain tool-icon`} />
+              <i className={`devicon-python-plain tool-icon`} />
+              <i className={`devicon-typescript-plain tool-icon`} />
+              <i className={`devicon-linux-plain tool-icon`} />
+              <i className={`devicon-windows11-plain tool-icon`} />
+              <i className={`devicon-docker-plain tool-icon`} />
+              <i className={`devicon-vscode-plain tool-icon`} />
+              <i className={`devicon-github-plain tool-icon`} />
+            </div>
+            <br />
+          </div>
+          {/* Personal projects */}
+          <h2>Projects</h2>
+          <hr />
+          <br />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "140px auto",
+              rowGap: "8px",
+              marginLeft: "10px",
+              marginRight: "10px",
+            }}
+          >
+            <Link to="https://github.com/DaFrankort/lenny-dnd-bot" target="_blank">
+              Lenny D&D bot
+            </Link>
+            <span>
+              Discord bot to help play tabletop games, and in specific D&D, written in Python.
+            </span>
+
+            <Link to="https://github.com/pipieter/neat-headers" target="_blank">
+              neat headers
+            </Link>
+            <span>Collection of single header C++20 libraries.</span>
+
+            <Link to="https://github.com/pipieter/d20distribution" target="_blank">
+              d20distribution
+            </Link>
+            <span>Python library to calculate the distribution of dice rolls.</span>
+
+            <Link to="https://github.com/pipieter/d20js" target="_blank">
+              d20js
+            </Link>
+            <span>
+              JavaScript library to simulate and calculate the distribution of dice rolls.
+            </span>
+          </div>
+          <br />
         </div>
-        <br />
       </div>
     </div>
   );
